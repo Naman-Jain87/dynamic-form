@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-9">
+          <button class="btn custom"> Hierarchy</button>
+        </div>
+        <div class="col-md-3" style="margin-top: -16px;">
+          <button class="btn btn-dark" type="button" (click)="openPopup()"> + Add Hierarchy
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body" style="width:100%;">
+                <div class="row">
+                  <div class="col-md-10">
+                    <button class="btn custom">Add Hierarchy</button>
+                  </div>
+                  <div class="col-md-2" style="margin-top: -18px;">
+                    <button type="button" class="btn btn-transparent" style="border: none;"
+                      (click)="closePopup()">X</button>
+                  </div>
+                </div>
+
+                  <form [formGroup]="hierarchyForm">
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <label for="">Select Department </label>
+                        <select class="form-control form-select" name="departmentName" formControlName="departmentName">
+                          <option value="" selected >select</option>
+                          <option *ngFor="let item of departments" [value]="item">{{item}}</option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                      <label for="hierarchyLevel">Hierarchy Level</label>
+                      <select name="hierarchyLevel" id="hierarchyLevel" class="form-control form-select" required  formControlName="hierLevel"  (change)="addHierarcy($event)">
+                          <option *ngFor="let r of hierarchyNumber" [selected]="r=== 'Select Hierarchy'" [disabled]="r=== 'Select Hierarchy'">{{r}}</option>
+                      </select>
+                  </div>
+
+
+
+                    <div class="row" formArrayName="hierarchyLevel">
+
+
+
+                      <div class="col-md-12" *ngFor="let item of hierarchyControls().controls;let j = index" >
+
+
+                        <div class="row shadow mt-3"  [formGroupName]="j" >
+                          {{j+1}}
+                            <div class="form-group col-md-12" style="border: 1px solid #01388c;border-radius: 5px;padding: 10px;margin: 0 0 25px 0;position: relative;">
+                                <label for="name">Name </label>
+                                <input type="text" class="form-control" name="name" formControlName="name" id="">
+
+                                <label for="type">Type </label>
+                                <input type="text" class="form-control" name="type" formControlName="type" id="">
+
+                            </div>
+                        </div>
+                    </div>
+                      </div>
+
+                    <div class="row mt-3">
+                      <div class="col-md-12">
+                        <button type="button" class="btn btn-danger" (click)="closePopup()">Cancel</button> &nbsp;&nbsp;
+                        <button type="submit" class="btn btn-dark" (click)="onSubmit(hierarchyForm)"> Save</button>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row mt-3 table-responsive">
+        <table class="table  custom-row">
+          <tbody>
+            <tr>
+              <th>S.No</th>
+              <th>Departments Name</th>
+              <th>Hierarchy</th>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Tech</td>
+              <td>1</td>
+
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>KM</td>
+              <td>4</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+

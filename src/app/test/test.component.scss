@@ -1,0 +1,59 @@
+.form-control {
+  background-color: #E5E5E5;
+}
+
+.btn-dark {
+  background-color: #003691;
+  color: fff;
+  border-color: #003691;
+
+}
+
+.custom-row td {
+  background-color: #EEF4FF;
+}
+
+.custom-row tr:hover td {
+  background-color: #CCDEFF;
+  color: #003691;
+
+  i {
+    color: red
+  }
+}
+.custom-row th {
+  background-color: #EEF4FF;
+}
+
+input:hover{
+  background-color: #E6F0FF;
+  color: #003691 ;
+}
+
+select:hover{
+  background-color: #E6F0FF;
+  color: #003691 ;
+}
+
+.custom{
+  color: #fff;
+  background-color: #273B69;
+  border-color: #273B69;
+  border-radius: 20px 0px 20px 0px;
+  width: 200px;
+  height: 40px;
+  margin-top: -21px;
+  margin-left: -20px;
+
+}
+
+button {
+  margin-right: 20px;
+}
+.dropdown-menu button {
+  margin: 10px;
+}
+.btn-custom img {
+  margin-bottom: 10px;
+}
+
